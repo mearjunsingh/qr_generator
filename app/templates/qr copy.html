@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE</title>
+
+    <style>
+        /* @page {
+            size: A;
+        } */
+
+        @media print {
+
+            html,
+            body {
+                width: 305mm;
+                height: 457mm;
+            }
+        }
+
+        .qr-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3mm;
+        }
+
+        .qr-box {
+            height: 19mm;
+            width: 19mm;
+        }
+
+        .qr-box>img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="qr-container">
+
+    {% for qr in qrs %}
+    <div class="qr-box">
+        <img src="https://chart.googleapis.com/chart?cht=qr&chl={{ qr }}&chs=400x400" alt="">
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>

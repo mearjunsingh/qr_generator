@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE</title>
+
+    <style>
+        @page {
+            size: A4;
+        }
+
+        .qr-container {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            row-gap: 1mm;
+        }
+
+        .qr-box {
+            height: 19mm;
+            width: 19mm;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .qr-box>img {
+            height: 100%;
+            width: 100%;
+            margin-bottom: -10px !important;
+        }
+
+        .qr-box>.label {
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body class="qr-container">
+
+    {% for qr in qrs %}
+    <div class="qr-box">
+        <img src="{{ qr.image }}">
+        <span class="label">{{ qr.label }}</span>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
