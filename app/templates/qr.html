@@ -15,6 +15,10 @@
 
         @media print {
 
+            @page {
+                margin: 0.55in 0 0.27in 0;
+            }
+
             .qr-box {
                 height: 19mm;
                 width: 19mm;
@@ -36,8 +40,8 @@
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
-                padding: 10px;
                 margin-left: 30px;
+                padding: 0px 10px 10px 10px;
             }
 
             .qr-box:nth-child(10n) {

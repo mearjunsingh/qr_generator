@@ -1,12 +1,6 @@
 from django.shortcuts import render
 
-# from app.data import NADA_12000_DATA, LABELED_QR_DATA, NADE_2000_DATA
-
-
-NADE_2000_DATA = [
-    "https://www.seiu1000.org/sites/main/files/imagecache/hero/main-images/camera_lense_0.jpeg"
-    for _ in range(2000)
-]
+from app.data import NADA_12000_DATA, LABELED_QR_DATA, NADE_2000_DATA
 
 
 def index(request):
