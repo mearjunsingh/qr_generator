@@ -13,13 +13,13 @@
 
         .qr-container {
             display: grid;
-            grid-template-columns: repeat(9, 1fr);
-            row-gap: 1mm;
+            grid-template-columns: repeat(6, 1fr);
+            row-gap: 3mm;
         }
 
         .qr-box {
-            height: 19mm;
-            width: 19mm;
+            height: 1in;
+            width: 1in;
             margin-top: 10px;
             text-align: center;
         }
@@ -31,20 +31,30 @@
         }
 
         .qr-box>.label {
-            font-size: 12px;
+            font-size: 20px;
         }
     </style>
 </head>
 
-<body class="qr-container">
+<body>
+    {% for label, qrcs in qrs.items %}
+    <div class="qr-container">
+        {% for qrc in qrcs %}
 
-    {% for qr in qrs %}
-    <div class="qr-box">
-        <img src="{{ qr.image }}">
-        <span class="label">{{ qr.label }}</span>
+        <div class="qr-box">
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl={{ qrc }}&chs=400x400" alt="QR">
+            <span class="label">{{ label }}</span>
+        </div>
+
+        {% if forloop.last %}
+    </div>
+    <br>
+    <hr>
+    <div class="qr-container">
+        {% endif %}
+        {% endfor %}
     </div>
     {% endfor %}
-
 </body>
 
 </html>

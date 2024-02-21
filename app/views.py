@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-from app.data import NADA_12000_DATA, LABELED_QR_DATA, NADE_2000_DATA
+from app.data.qr_data_e5_live_test_event_1_first_5000_tickets import QR_DATA
+from app.data.pharma_expo_stall_diff_label_qrs import DIFF_LABELED_QR_DATA
+from app.data.pharma_expo_stall_same_label_qrs import SAME_LABELED_QR_DATA
 
 
 def index(request):
@@ -8,8 +10,24 @@ def index(request):
 
 
 def qr(request):
-    return render(request, "qr.html", {"qrs": NADE_2000_DATA})
+    return render(request, "qr.html", {"qrs": QR_DATA})
 
 
-# def labeled_qr(request):
-#     return render(request, "labeled_qr.html", {"qrs": LABELED_QR_DATA})
+def same_labeled_qr(request):
+    return render(
+        request,
+        "same_labeled_qr.html",
+        {
+            "qrs": SAME_LABELED_QR_DATA,
+        },
+    )
+
+
+def diff_labeled_qr(request):
+    return render(
+        request,
+        "diff_labeled_qr.html",
+        {
+            "qrs": DIFF_LABELED_QR_DATA,
+        },
+    )
